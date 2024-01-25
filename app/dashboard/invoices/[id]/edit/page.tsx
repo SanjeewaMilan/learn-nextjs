@@ -8,6 +8,10 @@ import { notFound } from 'next/navigation';
 export default async function Page({ params }: { params: { id: string } }) {
     const id = params.id;
 
+    // const initialState = { message: null, errors: {} };
+    // const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
+    // const [state, dispatch] = useFormState(updateInvoiceWithId, initialState);
+
     //Promise.all to fetch both the invoice and customers in parallel:
     const [invoice, customers] = await Promise.all([
         fetchInvoiceById(id),
